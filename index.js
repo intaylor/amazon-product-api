@@ -20,7 +20,7 @@ client.on('error', err => {
 app.post('/{productId}', function (req, res) {
 
   // assume the details is returned from the Amazon Product API call
-  res.data.productDetails = {'category': 'electric', 'rate': ''};
+  res.data.productDetails = {'category': 'electric', 'rank': '1', 'dimension': ''};
 
   // save to redis
   client.hmsetAsync(productId, res.data.productDetails)
