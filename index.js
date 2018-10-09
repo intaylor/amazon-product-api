@@ -34,7 +34,7 @@ app.get('/check', function (req, res) {
           console.log(data);
 
           // save to redis
-          client.hmset({'B002QYW8LW', 'price', data.price, 'title', data.title}).catch(e => console.log(e));
+          client.hmset({'B002QYW8LW', 'price', data.price, 'title', data.title});
 
           // display
           return res.json(data);
