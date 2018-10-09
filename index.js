@@ -26,15 +26,17 @@ app.get('/check', function (req, res) {
   client.hgetall('B002QYW8LW', function(err, object) {
 
     console.log(object);
+    console.log('err: '  + err);
+    console.log('object: '+ JSON.stringify(object));
 
-    if (err) {
+    if (err || err == null || object == null) {
 
       // call product api
       scraper.init('https://www.amazon.com/gp/product/B002QYW8LW/', function(data){
           console.log(data);
 
           // save to redis
-          client.hmset({'B002QYW8LW', 'price', data.price, 'title', data.title});
+          client.hmset('B002QYW8LW', {'price': data.price, 'title': data.title});
 
           // display
           return res.json(data);
