@@ -12,6 +12,7 @@
     "bluebird": "^3.5.2",
     "express": "^4.16.3",
     "npm": "^6.4.1",
+    "product-scraper": "^0.1.1",
     "redis": "^2.8.0"
   }
 }
